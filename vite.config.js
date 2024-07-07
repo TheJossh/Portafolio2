@@ -3,7 +3,7 @@ import * as glob from "glob";
 import { ViteMinifyPlugin } from 'vite-plugin-minify';
 import htmlPurge from 'vite-plugin-purgecss';
 import path, { resolve } from "node:path";
-import handlebars from 'vite-plugin-handlebars';
+
 
 
 export default defineConfig(
@@ -31,15 +31,7 @@ export default defineConfig(
             }
         },
         plugins: [
-            handlebars({
-                partialDirectory: resolve(__dirname, 'parciales'),
-                context: (pagePath)=>{
-                    console.log(pagePath);
-                    const contextVariable = getPageContext(pagePath);
-                    console.log(contextVariable);
-                    return contextVariable;
-                }
-            }),
+          
             htmlPurge({}),
             ViteMinifyPlugin()
         ]
